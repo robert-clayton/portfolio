@@ -25,77 +25,79 @@
   }
 }
 
-@function multipleBoxShadow ($n) {
-  $value: '#{random(3840)}px #{random(20000)}px #FFF';
-  @for $i from 1 through $n {
-    $value: '#{$value}, #{random(3840)}px #{random(2000)}px #FFF';
+@media (min-width: 600px) {
+  @function multipleBoxShadow ($n) {
+    $box-shadow: ();
+    @for $i from 1 through $n {
+      $box-shadow: append($box-shadow, #{random(3840)}px #{random(2000)}px #fff , comma);
+    }
+    @return $box-shadow;
   }
-  @return unquote($value);
-}
 
-$shadowsSmall: multipleBoxShadow(200);
-$shadowsMedium: multipleBoxShadow(100);
-$shadowsLarge: multipleBoxShadow(50);
+  $shadowsSmall: multipleBoxShadow(200);
+  $shadowsMedium: multipleBoxShadow(100);
+  $shadowsLarge: multipleBoxShadow(50);
 
-.stars {
-  width: 1px;
-  height: 1px;
-  background: transparent;
-  box-shadow: $shadowsSmall;
-  animation: animStar 50s linear infinite;
-
-  &::after {
-    content: " ";
-    position: absolute;
-    top: 2000px;
+  .stars {
     width: 1px;
     height: 1px;
     background: transparent;
     box-shadow: $shadowsSmall;
+    animation: animStar 50s linear infinite;
+
+    &::after {
+      content: " ";
+      position: absolute;
+      top: 2000px;
+      width: 1px;
+      height: 1px;
+      background: transparent;
+      box-shadow: $shadowsSmall;
+    }
   }
-}
 
-.stars2 {
-  width: 2px;
-  height: 2px;
-  background: transparent;
-  box-shadow: $shadowsMedium;
-  animation: animStar 100s linear infinite;
-
-  &::after {
-    content: " ";
-    position: absolute;
-    top: 2000px;
+  .stars2 {
     width: 2px;
     height: 2px;
     background: transparent;
     box-shadow: $shadowsMedium;
+    animation: animStar 100s linear infinite;
+
+    &::after {
+      content: " ";
+      position: absolute;
+      top: 2000px;
+      width: 2px;
+      height: 2px;
+      background: transparent;
+      box-shadow: $shadowsMedium;
+    }
   }
-}
 
-.stars3 {
-  width: 3px;
-  height: 3px;
-  background: transparent;
-  box-shadow: $shadowsLarge;
-  animation: animStar 150s linear infinite;
-
-  &::after {
-    content: " ";
-    position: absolute;
-    top: 2000px;
+  .stars3 {
     width: 3px;
     height: 3px;
     background: transparent;
     box-shadow: $shadowsLarge;
-  }
-}
+    animation: animStar 150s linear infinite;
 
-@keyframes animStar {
-  from {
-    transform: translateY(0px);
+    &::after {
+      content: " ";
+      position: absolute;
+      top: 2000px;
+      width: 3px;
+      height: 3px;
+      background: transparent;
+      box-shadow: $shadowsLarge;
+    }
   }
-  to {
-    transform: translateY(-2000px);
+
+  @keyframes animStar {
+    from {
+      transform: translateY(0px);
+    }
+    to {
+      transform: translateY(-2000px);
+    }
   }
 }
