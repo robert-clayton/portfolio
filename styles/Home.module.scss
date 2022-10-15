@@ -44,16 +44,16 @@
     background: transparent;
     box-shadow: $shadowsSmall;
     animation: animStar 50s linear infinite;
+  }
 
-    &::after {
-      content: " ";
-      position: absolute;
-      top: 2000px;
-      width: 1px;
-      height: 1px;
-      background: transparent;
-      box-shadow: $shadowsSmall;
-    }
+  .stars::after {
+    content: " ";
+    position: absolute;
+    top: 2000px;
+    width: 1px;
+    height: 1px;
+    background: transparent;
+    box-shadow: $shadowsSmall;
   }
 
   .stars2 {
@@ -62,16 +62,16 @@
     background: transparent;
     box-shadow: $shadowsMedium;
     animation: animStar 100s linear infinite;
+  }
 
-    &::after {
-      content: " ";
-      position: absolute;
-      top: 2000px;
-      width: 2px;
-      height: 2px;
-      background: transparent;
-      box-shadow: $shadowsMedium;
-    }
+  .stars2::after {
+    content: " ";
+    position: absolute;
+    top: 2000px;
+    width: 2px;
+    height: 2px;
+    background: transparent;
+    box-shadow: $shadowsMedium;
   }
 
   .stars3 {
@@ -80,16 +80,16 @@
     background: transparent;
     box-shadow: $shadowsLarge;
     animation: animStar 150s linear infinite;
+  }
 
-    &::after {
-      content: " ";
-      position: absolute;
-      top: 2000px;
-      width: 3px;
-      height: 3px;
-      background: transparent;
-      box-shadow: $shadowsLarge;
-    }
+  .stars3::after {
+    content: " ";
+    position: absolute;
+    top: 2000px;
+    width: 3px;
+    height: 3px;
+    background: transparent;
+    box-shadow: $shadowsLarge;
   }
 
   @keyframes animStar {
