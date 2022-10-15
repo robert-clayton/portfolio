@@ -1,5 +1,3 @@
-import Head from 'next/head'
-import ExportedImage from 'next-image-export-optimizer'
 import styles from '../styles/Home.module.scss'
 
 export default function Home() {

@@ -19,9 +19,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-        with:
-          token:  ${{ secrets.WORKFLOW_TOKEN }}
-          lfs: true
 
       - name: Use Node.js ${{ env.node-version }}
         uses: actions/setup-node@v1
