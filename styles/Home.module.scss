@@ -1,0 +1,103 @@
+
+
+.card {
+  background-color: #000000;
+  border-radius: 10px;
+  width: 60%;
+  height: 80%;
+  min-width: 500px;
+  min-height: 500px;
+  max-width: 1000px;
+  max-height: 800px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 60px 0 rgb(52, 152, 170, 0.1);
+  overflow: hidden;
+}
+
+/* when on phone, use different layout */
+@media (max-width: 600px) {
+  .card {
+    width: 90%;
+    height: 90%;
+  }
+}
+
+@media (min-width: 600px) {
+  @function multipleBoxShadow ($n) {
+    $value: '#{random(3840)}px #{random(20000)}px #FFF';
+    @for $i from 1 through $n {
+      $value: '#{$value}, #{random(3840)}px #{random(2000)}px #FFF';
+    }
+    @return unquote($value);
+  }
+  
+  $shadowsSmall: multipleBoxShadow(200);
+  $shadowsMedium: multipleBoxShadow(100);
+  $shadowsLarge: multipleBoxShadow(50);
+  
+  .stars {
+    width: 1px;
+    height: 1px;
+    background: transparent;
+    box-shadow: $shadowsSmall;
+    animation: animStar 50s linear infinite;
+  
+    &::after {
+      content: " ";
+      position: absolute;
+      top: 2000px;
+      width: 1px;
+      height: 1px;
+      background: transparent;
+      box-shadow: $shadowsSmall;
+    }
+  }
+  
+  .stars2 {
+    width: 2px;
+    height: 2px;
+    background: transparent;
+    box-shadow: $shadowsMedium;
+    animation: animStar 100s linear infinite;
+  
+    &::after {
+      content: " ";
+      position: absolute;
+      top: 2000px;
+      width: 2px;
+      height: 2px;
+      background: transparent;
+      box-shadow: $shadowsMedium;
+    }
+  }
+  
+  .stars3 {
+    width: 3px;
+    height: 3px;
+    background: transparent;
+    box-shadow: $shadowsLarge;
+    animation: animStar 150s linear infinite;
+  
+    &::after {
+      content: " ";
+      position: absolute;
+      top: 2000px;
+      width: 3px;
+      height: 3px;
+      background: transparent;
+      box-shadow: $shadowsLarge;
+    }
+  }
+  
+  @keyframes animStar {
+    from {
+      transform: translateY(0px);
+    }
+    to {
+      transform: translateY(-2000px);
+    }
+  }
+}
