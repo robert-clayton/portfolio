@@ -26,7 +26,7 @@ jobs:
           node-version: ${{ env.node-version }}
 
       - run: yarn install --frozen-lockfile
-      - run: mkdir public/images/nextImageExportOptimizer
+      - run: mkdir -p public/images/nextImageExportOptimizer
       - run: yarn export
 
       - name: Configure AWS credentials
